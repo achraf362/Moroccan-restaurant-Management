@@ -1,0 +1,196 @@
+{% extends 'base.html' %} {% block body %} {% load static %}
+<script src="https://kit.fontawesome.com/3e34c14145.js" crossorigin="anonymous"></script>
+	  <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+	  <link rel="stylesheet" href="aos.css">
+	  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/3.0.0-beta.4/aos.css" rel="stylesheet">
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/3.0.0-beta.4/aos.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+      <meta name="google-site-verification" content="pM1x1UjnRX8XByY60MODp33adOhfIYNd_sGrkz4HCxg" />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
+
+
+
+
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+  <strong>Message:</strong> {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+
+<div class="container-fluid">
+<div id="" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://www.royalmansour.com/wp-content/uploads/2023/10/RM-marrakech-gallery-128.jpg" class="img-fluid w-100 h-100" style="height: auto;" alt="...">
+    </div>
+    <div class="carousel-item">
+    <img src="https://www.royalmansour.com/wp-content/uploads/2023/10/RM-Escape-en-famille-1.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+    <img src="https://www.royalmansour.com/wp-content/uploads/2023/10/RM-event-2.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  </div>
+<!-- ################################################################################################ -->
+<div data-aos="flip-right" data-aos-duration="1000">
+<div class="about-section">
+<div class="inner-width">
+  <h1>À propos de nous</h1>
+  <div class="border"></div>
+  <div class="about-section-row">
+  <div class="about-section-col">
+    <div class="about">
+    <p> Bienvenue chez MedinaFlavors, un joyau culinaire au cœur de Marrackech. Plongez dans une expérience gustative authentique où les saveurs marocaines envoûtantes se mêlent à notre passion pour la cuisine.
+      Notre équipe de chefs talentueux met en scène des ingrédients frais et savoureux pour créer des plats qui éveilleront vos papilles. Chaque assiette est une symphonie de goûts, d'épices exotiques et d'arômes envoûtants, vous transportant au cœur du Maroc
+      Notre service chaleureux et attentionné crée une ambiance accueillante, propice à la détente et à la dégustation. Découvrez des tajines parfumés, des couscous délicats, des pâtisseries marocaines exquises et le thé à la menthe traditionnel.
+      Rejoignez-nous chez Medinaflavors pour un voyage gustatif à travers les saveurs enchanteresses du Maroc. Préparez-vous à une expérience culinaire inoubliable.
+    </p>
+    </div>
+  </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+
+          <style>
+              ::-webkit-scrollbar{
+                  background: #ddd;
+                  width: 14px;
+                  }
+                  ::-webkit-scrollbar-track{
+                  box-shadow: inset 0 0 10px #00000070;
+                  border-radius: 10px;
+                  }
+                  ::-webkit-scrollbar-thumb{
+                  background: linear-gradient(125deg,#3498db,#34495e);
+                  border-radius: 10px;
+                  }
+
+                  ::-webkit-scrollbar-thumb:hover{
+                      background: linear-gradient(125deg,#34495e,#3498db);
+                  }
+          </style>
+
+
+<!-- #####################################################################################################################   -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="aos.js"></script>
+  <script type="text/javascript">
+      AOS.init();
+  </script>
+
+<!-- ################################################################################################ -->
+<div data-aos="fade-right" data-aos-duration="1000" data-aos-offset='150'>
+<div class="container" style="padding-top: 3%;">
+  <h1> Expérience gastronomique d'exception</h1>
+  <div class="card-deck my-3">
+    <div class="card" style="box-shadow: -30px 30px 20px rgba(0, 0, 0, 0.3);">
+      <img src="https://www.royalmansour.com/wp-content/uploads/2023/10/RM-Escape-en-famille-1.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Escapade en famille</h5>
+        <p class="card-text">Plongez-vous dans une invitation irrésistible à un dîner en famille inoubliable. Laissez-vous séduire par une expérience culinaire exceptionnelle où chaque bouchée est un délice partagé. Découvrez une atmosphère chaleureuse et conviviale, créant des souvenirs précieux et des moments de complicité qui resteront gravés dans vos cœurs</p>
+        <div style=" display: flex ; justify-content: center; align-items: center;">
+        <a href="/reservations" style="background-color: #746f6e; color: #FFFFFF; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Réserver</a>
+      </div>
+      </div>
+    </div>
+    <div class="card" style="box-shadow: -30px 30px 20px rgba(0, 0, 0, 0.3);">
+      <img src=" https://www.royalmansour.com/wp-content/uploads/2023/06/RM-LA-GRANDE-TABLE-MAROCAINE-3.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Le Couscous du vendredi</h5>
+        <p class="card-text">Découvrez notre couscous du vendredi, un véritable délice gastronomique qui fait honneur à la tradition,où la semoule légère et parfumée se marie harmonieusement avec des légumes mijotés et d'une viande tendre et savoureuse.Une expérience culinaire qui réveillera vos sens et vous transportera vers les contrées lointaines du Maghreb.</p>
+        <div style=" display: flex ; justify-content: center; align-items: center;">
+          <a href="/reservations" style="background-color: #746f6e; color: #FFFFFF; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Réserver</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="box-shadow: -30px 30px 20px rgba(0, 0, 0, 0.3);">
+      <img src="https://www.royalmansour.com/wp-content/uploads/2023/10/RM-widding-5.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">fêtes</h5>
+        <p class="card-text">Notre restaurant est ravi de vous offrir des fêtes mémorables.Que ce soit pour célébrer un anniversaire, une réunion profisionnelle ou une occasion spéciale, notre équipe dévouée prendra soin de tous les détails. De la planification minutieuse à la création d'un menu personnalisé, nous nous engageons à vous offrir une expérience gastronomique exceptionnelle.</p>
+        <div style=" display: flex ; justify-content: center; align-items: center;">
+        <a href="/reservations"  style="background-color: #746f6e; color: #FFFFFF; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Réserver</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .card:hover{
+  transform: scale(1.06);
+  transition-delay: 0.1s;
+  transition-duration: 0.7s;
+  }
+  
+      </style>
+</div>
+<br>
+<br>
+<br>
+{% comment "" %}    ART   {% endcomment %}
+<div data-aos="flip-right" data-aos-duration="1000">
+  <div class="art-section">
+  <div class="inner-width">
+    <br>
+    <h1>Époustouflante Magie Artistique Marocaine </h1>
+    <div class="art-section-row">
+    <div class="art-section-col">
+      <div class="art">
+      <p>L'art marocain, véritable trésor culturel, s'invite à votre table, éveillant votre curiosité et nourrissant votre âme.
+        Notre engagement envers votre bien-être se reflète dans chaque performance artistique,nous croyons fermement que l'art a
+        le pouvoir de vous transporter vers un état d'émerveillement et de vous offrir un moment de détente et de connexion,faisant 
+        de chaque instant passé dans notre restaurant une véritable oasis de bonheur pour nos précieux clients. 
+      </p>
+      </div>
+  </div>
+  </div>
+</div>
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="7000">
+					<ol class="carousel-indicators">
+						<li data-target="#carouselExampleIndicators" data-diapo="1" class="active"></li>
+						<li data-target="#carouselExampleIndicators" data-diapo="2"  ></li>
+					
+
+					</ol>
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img src="https://www.royalmansour.com/wp-content/uploads/2023/06/RM-private-receptions-6.jpg" class="d-block w-100" alt="...">
+						</div>
+						<div class="carousel-item">
+							<img src="https://www.royalmansour.com/wp-content/uploads/2023/06/RM-LA-GRANDE-TABLE-MAROCAINE-7.jpg"  class="d-block w-100" alt="...">
+						</div>
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">precedant</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">suivant</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<hr>
+</div>
+
+
+{% endblock body %}

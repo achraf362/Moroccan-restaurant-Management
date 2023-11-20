@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <!-- Stylesheets -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+<!-- JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  
+ 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
+  <script src="https://kit.fontawesome.com/3e34c14145.js" crossorigin="anonymous"></script>
+	  <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+	  <link rel="stylesheet" href="aos.css">
+	  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+      <meta name="google-site-verification" content="pM1x1UjnRX8XByY60MODp33adOhfIYNd_sGrkz4HCxg" />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+  <title>{% block title %}{% endblock title %}</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg  fixed-top navbar-dark light">
+    <a class="navbar-brand" href="/home" style=" font-weight: bold;"><span class="fas fa-utensils fa-lg" ></span>MedinaFlavors</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/home"><span class="fa fa-home fa-lg"></span>Acceuil<span class="sr-only"></span></a>
+        </li>
+       
+        <li class="nav-item">
+          <a class="nav-link " href="/menu" tabindex="-1" aria-disabled="true"><span class="fa fa-list fa-lg"></span>
+            Menu
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " href="/reservations" tabindex="-1" aria-disabled="true"><span
+              class="fas fa-table fa-lg"></span>
+            Résérvations
+          </a>
+        </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/contact" tabindex="-1" aria-disabled="true"><span
+              class="fa fa-address-card fa-lg"></span>
+            Contact
+          </a>
+        </li>
+        
+      </ul>
+    
+     
+    
+ {% if user.is_authenticated %}
+ <ul class="navbar-nav ml-auto">
+ <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: rgb(106, 99, 29);">
+    Welcome {{request.user}}
+  </a>
+  <div class="dropdown-menu ml-2" aria-labelledby="navbarDropdown">
+    <a class="dropdown-item" href="/logout"><button type="button" class="btn btn-primary" style="color: rgb(106, 99, 29);">Logout</button></a>
+   </div>
+</li>
+ </ul>
+
+
+ {% else %}
+
+ {% load socialaccount %}
+ {% providers_media_js %} 
+
+
+    <!-- Button trigger for signup modal modal -->
+   
+   <button type="button" class="btn btn-primary mx-2" data-toggle="modal" data-target="#signupModal" style="color: rgb(38, 38, 37);background-color: rgb(255, 255, 255);border: 2px solid  rgb(150, 130, 68);
+   padding: 10px 20px;">
+    S'inscrire
+  </button>
+  <!-- Button trigger for login modal modal -->
+  <button type="button" class="btn btn-primary mx-2 " data-toggle="modal" data-target="#loginModal" style="color: rgb(55, 55, 21); background-color: rgb(255, 255, 255);border: 2px solid  rgb(150, 130, 68); 
+  padding: 10px 20px;">
+    Se connecter
+  </button>
+  {% endif %}
+</div>
+  </nav>
+   <!-- sign up modal modal modal -->
+  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signuptitle">S'inscrire </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="/signup">
+          {% csrf_token %}
+         
+            <div class="form-group col-md-6">
+          <a href="{% provider_login_url "google"  %}"> <button type="button" class="btn btn-danger btn-lg btn-block mx-2 ml-2"><i class="fab fa-google" style="margin-right: 16px;"></i>Google </button></a>
+          
+      </div>
+          <h5 class="ml-3 "><span class="badge badge-warning">Ou</span></h5>
+          <div class="form-row">
+           
+            <div class="form-group col-md-6">
+              <label for="Username1">Nom d'utilisateur</label>
+              <input type="text" class="form-control" id="username1"
+              name="username" required>
+            </div>
+            <div class="form-group">
+              <label for="fname1">Prénom</label>
+              <input type="text" class="form-control" id="fname1" name="fname1"  required>
+            </div>
+            <div class="form-group">
+              <label for="lname1">Nom</label>
+              <input type="text" class="form-control" id="lname1" 
+              name="lname1" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="email1">Email</label>
+              <input type="email" class="form-control" id="email1"
+              name="email1" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="password1">  mot de passe</label>
+              <input type="password" class="form-control" id="password1" name="password2" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="Password3"> Confirmer </label>
+              <input type="password" class="form-control" id="Password3"
+              name="password4" required>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">enregistrer  </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+  <!-- Login modal from bootstrap modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logintitle">se connecter</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="/login">
+          {% csrf_token %}
+          
+          
+            <div class="form-group col-md-6">
+            <a href="{% provider_login_url "google"  %}"> <button type="button" class="btn btn-danger btn-lg btn-block mx-2 ml-2"><i class="fab fa-google" style="margin-right: 16px;"></i>Google </button></a>
+            
+        </div>
+      
+            <h5 class="text-center"><span class="badge badge-warning">Ou</span></h5>
+          <div class="form-row">
+          
+            
+            
+            
+            <div class="form-group col-md-6">
+              <label for="Username">Nom d'utilisateur</label>                          
+              <input type="text" class="form-control" id="username"
+              name="username" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="password5">  Mot de passe</label>
+              <input type="password" class="form-control" id="password5" name="password6" required>
+            </div>
+            
+          </div>
+          <button type="submit" class="btn btn-primary">enregistrer</button>
+          
+          
+        
+        
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--Message tool in django-->
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+  <strong>Message:</strong> {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+  {% block body %}
+
+  <!--Message tool in django-->
+
+
+<!--End of message tool-->
+  
+  
+  {% endblock body %}
+
+  {% block footer %} {% endblock footer %}
+  <!-- Footer -->
+  <footer class="page-footer font-small mdb-color light-3 pt-4">
+    <style>
+      /* Ajoutez ce CSS pour ajuster la hauteur du footer */
+      footer.page-footer {
+          padding-top: 30px; /* Ajoutez ou ajustez cette valeur selon vos besoins */
+          padding-bottom: 30px; /* Ajoutez ou ajustez cette valeur selon vos besoins */
+          background-color: rgb(212, 214, 192) /* La couleur de fond du footer */
+      }
+
+      /* Si vous souhaitez ajuster la hauteur de certains éléments internes au footer, vous pouvez également le faire */
+      footer.page-footer h5,
+      footer.page-footer p {
+          margin-bottom: 10px; /* Ajoutez ou ajustez cette valeur selon vos besoins */
+      }
+
+      /* Si nécessaire, ajustez également la hauteur des liens dans la section "About" */
+      footer.page-footer ul.list-unstyled li p a {
+          margin-bottom: 5px; /* Ajoutez ou ajustez cette valeur selon vos besoins */
+      }
+
+      /* Si nécessaire, ajustez également la hauteur des boutons de médias sociaux */
+      footer.page-footer .btn-social-icon {
+          margin-bottom: 10px; /* Ajoutez ou ajustez cette valeur selon vos besoins */
+      }
+  </style>
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+      <div style="background-color: rgb(212,  214, 192)">
+
+        <!-- Grid row -->
+        <div class="row">
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+            <!-- Content -->
+            <h7 class="font-weight-bold text-uppercase mb-4">à propos </h7>
+             <br>
+            <p>Bienvenue chez Medina Flavors, une oasis gastronomique où </p>
+            <p>les saveurs authentiques se rencontrent dans une symphonie de délices</p>
+
+          </div>
+          <!-- Grid column -->
+
+          <hr class="clearfix w-100 d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+            
+           <!-- Links -->
+           <h7 class="font-weight-bold text-uppercase mb-4">Nos propositions </h7>
+              <br>
+            <ul class="list-unstyled">
+            <li>
+            <p>
+              <a href="/menu" style="color: inherit; text-decoration: none;">Menu</a>
+            </p>
+           </li>
+           <li>
+            <p>
+              <a href="/contact" style="color: inherit; text-decoration: none;">Contact</a>
+            </p>
+           </li>          
+           <p>
+            <a href="/reservations" style="color: inherit; text-decoration: none;">Résérvations</a>
+            </p>
+          </li>
+        </ul>
+
+
+
+             
+ 
+          
+
+          </div>
+          <!-- Grid column -->
+
+          <hr class="clearfix w-100 d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+            <!-- Contact details -->
+            <h7 class="font-weight-bold text-uppercase mb-4">Address</h7>
+
+            <br>
+
+
+            <ul class="list-unstyled">
+              <li>
+                <p>
+                  <i class="fas fa-home mr-3"></i> Medina Flavors Restaurant
+                  123 Rue Gourmandise
+                  Ville des Saveurs, Pays de Délices
+                  Code Postal: 12345</p>
+              </li>
+              <li>
+                <p>
+                  <i class="fas fa-envelope mr-3"></i> MedinaFlavors@gmail.com</p>
+              </li>
+              <li>
+                <p>
+                  <i class="fas fa-phone mr-3"></i> + 212500600505</p>
+              </li>
+              <li>
+                <p>
+                  <i class="fas fa-print mr-3"></i> + 212560346802</p>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+          <hr class="clearfix w-100 d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+            <!-- Social buttons -->
+            <h7 class="font-weight-bold text-uppercase mb-4">Restez Informer </h7>
+             <br>
+
+
+            <!-- Facebook -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+            <a class="btn btn-social-icon btn-google" href="http://google.com/+" target="_blank"><i class="fab fa-google-plus"></i></a>
+          <a class="btn btn-social-icon btn-facebook" href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a class="btn btn-social-icon btn-google" href="http://youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+           <a class="btn btn-social-icon" href="mailto:" target="_blank"><i class="fas fa-envelope"></i></a>
+
+
+
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+      </div>
+      <!-- Footer Links -->
+
+
+
+  </footer>
+  <!-- Footer -->
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
