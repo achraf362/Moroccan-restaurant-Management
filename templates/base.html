@@ -29,11 +29,12 @@
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
   <title>{% block title %}{% endblock title %}</title>
+  
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg  fixed-top navbar-dark light">
-    <a class="navbar-brand" href="/home" style=" font-weight: bold;"><span class="fas fa-utensils fa-lg" ></span>MedinaFlavors</a>
+    <a class="navbar-brand" href="/home" style=" font-weight: bold; color:black;"><span class="fas fa-utensils fa-lg" ></span>MedinaFlavors</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -42,24 +43,24 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/home"><span class="fa fa-home fa-lg"></span>Acceuil<span class="sr-only"></span></a>
+          <a class="nav-link" href="/home" style="color:black;"><span class="fa fa-home fa-lg"></span>Acceuil<span class="sr-only"></span></a>
         </li>
        
         <li class="nav-item">
-          <a class="nav-link " href="/menu" tabindex="-1" aria-disabled="true"><span class="fa fa-list fa-lg"></span>
+          <a class="nav-link " href="/menu" tabindex="-1" aria-disabled="true" style="color:black;"><span class="fa fa-list fa-lg"></span>
             Menu
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link " href="/reservations" tabindex="-1" aria-disabled="true"><span
+          <a class="nav-link " href="/reservations" tabindex="-1" aria-disabled="true" style="color:black ;"><span
               class="fas fa-table fa-lg"></span>
             Résérvations
           </a>
         </li>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="/contact" tabindex="-1" aria-disabled="true"><span
+          <a class="nav-link " href="/contact" tabindex="-1" aria-disabled="true" style="color:black;"><span
               class="fa fa-address-card fa-lg"></span>
             Contact
           </a>
@@ -116,14 +117,18 @@
       <div class="modal-body">
         <form method="POST" action="/signup">
           {% csrf_token %}
-         
-            <div class="form-group col-md-6">
-          <a href="{% provider_login_url "google"  %}"> <button type="button" class="btn btn-danger btn-lg btn-block mx-2 ml-2"><i class="fab fa-google" style="margin-right: 16px;"></i>Google </button></a>
-          
-      </div>
-          <h5 class="ml-3 "><span class="badge badge-warning">Ou</span></h5>
-          <div class="form-row">
-           
+          <div class="form-group col-md-7">
+            <a href="{% provider_login_url "google" %}">
+              <div class="content-wrapper">
+                <div class="logo-wrapper">
+                  <img class="google-logo" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Logo">
+                </div>
+                <span class="button-text">S'inscrire avec Google</span>
+              </div>
+            </a>
+          </div>
+      <h5 class="text-center"><span style="display: block; text-align: center;">Ou</span></h5>
+      <div class="form-row">
             <div class="form-group col-md-6">
               <label for="Username1">Nom d'utilisateur</label>
               <input type="text" class="form-control" id="username1"
@@ -176,16 +181,16 @@
         <form method="POST" action="/login">
           {% csrf_token %}
           
-          
-            <div class="form-group col-md-6">
-            <a href="{% provider_login_url "google"  %}"> <button type="button" class="btn btn-danger btn-lg btn-block mx-2 ml-2"><i class="fab fa-google" style="margin-right: 16px;"></i>Google </button></a>
-            
-        </div>
-      
-            <h5 class="text-center"><span class="badge badge-warning">Ou</span></h5>
-          <div class="form-row">
-          
-            
+          <div class="form-group col-md-7">
+            <a href="{% provider_login_url "google" %}">
+              <div class="content-wrapper">
+                <div class="logo-wrapper">
+                  <img class="google-logo" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Logo">
+                </div>
+                <span class="button-text">Se connecter avec Google</span>
+              </div>
+            </a>
+          </div>
             
             
             <div class="form-group col-md-6">
@@ -268,10 +273,10 @@
           <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
 
             <!-- Content -->
-            <h7 class="font-weight-bold text-uppercase mb-4">à propos </h7>
+            <h7 class="font-weight-bold text-uppercase mb-4" style="color: black;">à propos </h7>
              <br>
-            <p>Bienvenue chez Medina Flavors, une oasis gastronomique où </p>
-            <p>les saveurs authentiques se rencontrent dans une symphonie de délices</p>
+            <p style="color:black;">Bienvenue chez Medina Flavors, une oasis gastronomique où </p>
+            <p style="color:black;">les saveurs authentiques se rencontrent dans une symphonie de délices</p>
 
           </div>
           <!-- Grid column -->
@@ -283,21 +288,21 @@
 
             
            <!-- Links -->
-           <h7 class="font-weight-bold text-uppercase mb-4">Nos propositions </h7>
+           <h7 class="font-weight-bold text-uppercase mb-4" style="color:black;">Nos propositions </h7>
               <br>
             <ul class="list-unstyled">
             <li>
             <p>
-              <a href="/menu" style="color: inherit; text-decoration: none;">Menu</a>
+              <a href="/menu" style="color: black; text-decoration: none;">Menu</a>
             </p>
            </li>
            <li>
             <p>
-              <a href="/contact" style="color: inherit; text-decoration: none;">Contact</a>
+              <a href="/contact" style="color: black; text-decoration: none;">Contact</a>
             </p>
            </li>          
            <p>
-            <a href="/reservations" style="color: inherit; text-decoration: none;">Résérvations</a>
+            <a href="/reservations" style="color: black; text-decoration: none;">Résérvations</a>
             </p>
           </li>
         </ul>
@@ -317,29 +322,29 @@
           <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
 
             <!-- Contact details -->
-            <h7 class="font-weight-bold text-uppercase mb-4">Address</h7>
+            <h7 class="font-weight-bold text-uppercase mb-4" style="color: black;">Address</h7>
 
             <br>
 
 
             <ul class="list-unstyled">
               <li>
-                <p>
+                <p style="color: black;">
                   <i class="fas fa-home mr-3"></i> Medina Flavors Restaurant
                   123 Rue Gourmandise
                   Ville des Saveurs, Pays de Délices
                   Code Postal: 12345</p>
               </li>
               <li>
-                <p>
+                <p style="color: black;">
                   <i class="fas fa-envelope mr-3"></i> MedinaFlavors@gmail.com</p>
               </li>
               <li>
-                <p>
+                <p style="color: black;">
                   <i class="fas fa-phone mr-3"></i> + 212500600505</p>
               </li>
               <li>
-                <p>
+                <p style="color: black;">
                   <i class="fas fa-print mr-3"></i> + 212560346802</p>
               </li>
             </ul>
@@ -353,7 +358,7 @@
           <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
 
             <!-- Social buttons -->
-            <h7 class="font-weight-bold text-uppercase mb-4">Restez Informer </h7>
+            <h7 class="font-weight-bold text-uppercase mb-4" style="color: black;">Restez Informer </h7>
              <br>
 
 
