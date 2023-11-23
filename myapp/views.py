@@ -10,7 +10,7 @@ from django.contrib import messages
 from .models import reserver, table
 
 
-def hom(request):
+def home(request):
     return render(request, 'home.html')
 
 
@@ -64,6 +64,7 @@ def reservations(request):
 
 
 
+from .models import Contact
 
 def contact(request):
     if request.method == "POST":
@@ -71,11 +72,15 @@ def contact(request):
         email = request.POST.get('email')
         subject = request.POST.get('subject')
         message = request.POST.get('message')
-        contact = reserver(name=name, email=email, subject=subject, message=message)
 
-        contact.save()
+        # Assuming you have a Contact model
+        contact = Contact(name=name, email=email, subject=subject, message=message)
+        
+
+        return redirect("contact")
 
     return render(request, 'contact.html')
+
 
 
 def gallery(request):
